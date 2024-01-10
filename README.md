@@ -55,3 +55,9 @@ conda activate npscout
 pip install -e .[dev,test]
 ptw
 ```
+
+## Contributors
+
+* Ya Chen
+* Steffen Hirte
+* Axinya Tokareva
