@@ -1,5 +1,7 @@
 import base64
+import gzip
 import os
+import sys
 from io import BytesIO
 from typing import List
 
@@ -11,24 +13,38 @@ from rdkit.Chem import AllChem, Mol, MolToSmiles
 from rdkit.Chem.Draw import SimilarityMaps
 
 mpl.use("Agg")
+
+
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 from nerdd_module import AbstractModel
 
 from .preprocessing import NpScoutPreprocessingPipeline
 
-__all__ = ["NPScoutModel"]
+if sys.version_info < (3, 9):
+    from importlib_resources import files
+else:
+    from importlib.resources import files
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
+
+__all__ = ["NPScoutModel"]
 
 # load ml models
 # build with n_jobs=1
-clfMaccs = load(os.path.join(current_dir, "models/clf_maccs.pkl"))
-clfMorgan = load(os.path.join(current_dir, "models/clf_morgan2.pkl"))
+clfMaccs = load(
+    gzip.open(files("np_scout").joinpath("models").joinpath("clf_maccs.pkl.gz"))
+)
+clfMorgan = load(
+    gzip.open(files("np_scout").joinpath("models").joinpath("clf_morgan2.pkl.gz"))
+)
 
 # build with n_jobs=4
-clfMaccs4 = load(os.path.join(current_dir, "models/clf_maccs_4.pkl"))
-clfMorgan4 = load(os.path.join(current_dir, "models/clf_morgan2_4.pkl"))
+clfMaccs4 = load(
+    gzip.open(files("np_scout").joinpath("models").joinpath("clf_maccs_4.pkl.gz"))
+)
+clfMorgan4 = load(
+    gzip.open(files("np_scout").joinpath("models").joinpath("clf_morgan2_4.pkl.gz"))
+)
 
 
 def get_similarity_map(model, mol, fSize, colorMap, cL):
