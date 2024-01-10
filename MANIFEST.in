@@ -1,0 +1,2 @@
+recursive-include np_scout/models *
+recursive-include np_scout/data *

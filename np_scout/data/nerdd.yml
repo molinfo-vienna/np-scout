@@ -1,0 +1,133 @@
+module:
+  rank: 7
+  name: np_scout
+  visible_name: NP-Scout
+  logo: !image logo.png
+  logo_title: Natural Product-Likeness
+  logo_caption: Identification and visualization of natural product-likeness
+  example_smiles: OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2 (empagliflozin)
+
+  title: Identification and Visualization of Natural Product-Likeness
+  description: |
+    NP-Scout is a free web service for the:
+    * Identification of natural products in large molecular libraries
+    * Quantification of natural product-likeness of small molecules
+    * Visualization of atoms and areas in small molecules characteristic of natural 
+      products or synthetic molecules (based on similarity maps)
+    
+    NP-Scout utilizes random forest classifiers trained on data sets consisting of more
+    than 265k natural products and synthetic molecules.
+
+  partners:
+    - name: University of Vienna
+      logo: !image logo_vienna.gif
+      url: https://www.univie.ac.at/
+    - name: University of Hamburg
+      logo: !image logo_hamburg.gif
+      url: https://www.uni-hamburg.de/
+  
+  citation: |
+    Chen, Y.; Stork, C.; Hirte, S.; Kirchmair, J. NP-Scout: Machine learning approach 
+    for the quantification and visualization of the natural product-likeness of small 
+    molecules. _Biomolecules_ **2019**.<br>
+    [doi: 10.3390/biom9020043](https://doi.org/10.3390/biom9020043)
+
+  contact:
+    - name: Ya Chen
+      email: chen@zbh.uni-hamburg.de
+    - name: Johannes Kirchmair
+      email: johannes.kirchmair@univie.ac.at
+
+  about: |
+    ## About NP-Scout
+
+    NP-Scout is a free web service for the:
+
+    * Identification of natural products in large molecular libraries
+    * Quantification of natural product-likeness of small molecules
+    * Visualization of atoms and areas in small molecules characteristic to natural products or synthetic molecules (based on similarity maps)
+
+    NP-Scout utilizes random forest classifiers trained on data sets consisting of more
+    than 265k natural products and synthetic molecules ([doi:
+    10.3390/biom9020043](https://doi.org/10.3390/biom9020043)).
+
+    ## Usage
+
+    Molecular structures can be loaded either by directly drawing a molecule with the
+    JSME Molecular editor \[1\], by pasting a SMILES into the field “Enter SMILES”, or
+    by uploading a text file containing a list of SMILES. NP-Scout runs a thorough data
+    preparation protocol to standardize the input. Therefore, chemical structures do not
+    need to be preprocessed by the user with respect to hydrogen annotation,
+    aromatization, protonation, tautomerism and stereochemistry. Salts are also
+    recognized, and the minor components removed prior to calculations. \[1\] Bienfait,
+    B.; Ertl, P. JSME: a free molecule editor in JavaScript. _J. Cheminform._ **2013**,
+    _5_, 24.
+
+    ## Example upload file
+
+    Lists of SMILES should be formatted as shown in the following examples: 
+    
+    Example 1: One SMILES per row with no additional data 
+    
+    C=C1C(=O)OC2C1CCC1(C)OC13CC=C(C)C23  
+    CC12C=CC(=O)NC1CCC1C2CCC2(C)C(C(=O)Nc3cc(C(F)(F)F)ccc3C(F)(F)F)CCC12 
+    
+    Example 2: One SMILES per row with additional data 
+    
+    C=C1C(=O)OC2C1CCC1(C)OC13CC=C(C)C23 arglabin  
+    CC12C=CC(=O)NC1CCC1C2CCC2(C)C(C(=O)Nc3cc(C(F)(F)F)ccc3C(F)(F)F)CCC12 dutaseride 
+    
+    The following separators may be used: " " (space character) or "\\t" (tab).
+
+    ## Running the calculations
+
+    Calculations are started by clicking the “Submit” button. A new web page will load
+    that reports on the progress of calculations and displays a web link that allows
+    users to return and inspect the results once all calculations have been completed.
+
+    ## Analyzing the results
+
+    The results page displays a table that presents the predictions for the query
+    molecules.
+
+    * Column "SMILES" reports the input SMILES.
+    * Column "Molecule name" reports the name of a molecule. If not specified, an index is reported.
+    * Column "Error/Warning" reports any errors or warnings.
+      * !1: Invalid or empty input. No output was produced. In combination with one of the other messages, the other message gives the reason for the invalidity
+      * S1: The salt filter identified a multi-compound SMILES for which the core component could not be determined. A result was generated from the original input but is probably unreliable.
+      * S0: The salt filter has removed at least one component of the input SMILES.
+      * W1: The molecular weight is not between 150 and 1500 Da. No prediction result.
+      * E1: Element types other than those present in the training data were detected. A result was generated but is probably unreliable.
+      * C1: Molecule is broken during canonalize procedure. Comes always with "!1".
+      * N1: Molecule is broken during neutralization procedure. Comes always with "!1".
+    * Column "NP class probability" reports the predicted probability of the molecule being a natural product.
+    * Column "Similarity maps" shows a visualization of similarity maps. Green highlights mark atom contributing to the classification of a molecule as natural products, whereas orange highlights mark atoms contributing to the classification of a molecule as synthetic molecules. Note that similarity maps are not calculated for molecules with a molecular weight below 150 Da or above 1500 Da.
+
+    The results in .csv format can be downloaded for further use. The .csv file contains
+    all the information from the table of results except for the similarity maps.
+
+  job_parameters:
+    - name: contour_lines
+      verbose_name: Contour lines for similarity map
+      type: bool
+      default: False
+    - name: quality
+      verbose_name: Figure quality of similarity map
+      type: text
+      choices:
+        - value: low
+          label: low
+        - value: high
+          label: high
+      default: low
+
+  result_properties:
+    - name: probability
+      verbose_name: NP class probability
+      type: float
+      palette: negativeToPositive
+      sortable: True
+    - name: similarity_map
+      verbose_name: Similarity map
+      type: image
+      sortable: False
