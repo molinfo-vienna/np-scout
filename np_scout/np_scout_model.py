@@ -1,6 +1,4 @@
 import base64
-import gzip
-import os
 import sys
 from io import BytesIO
 from typing import List
@@ -26,25 +24,22 @@ if sys.version_info < (3, 9):
 else:
     from importlib.resources import files
 
+import warnings
+
+# avoid warnings in old versions of numpy
+warnings.filterwarnings("ignore", message="numpy.dtype size changed")
+warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
 
 __all__ = ["NPScoutModel"]
 
 # load ml models
 # build with n_jobs=1
-clfMaccs = load(
-    gzip.open(files("np_scout").joinpath("models").joinpath("clf_maccs.pkl.gz"))
-)
-clfMorgan = load(
-    gzip.open(files("np_scout").joinpath("models").joinpath("clf_morgan2.pkl.gz"))
-)
+clfMaccs = load(files("np_scout").joinpath("models").joinpath("clf_maccs.pkl.gz"))
+clfMorgan = load(files("np_scout").joinpath("models").joinpath("clf_morgan2.pkl.gz"))
 
 # build with n_jobs=4
-clfMaccs4 = load(
-    gzip.open(files("np_scout").joinpath("models").joinpath("clf_maccs_4.pkl.gz"))
-)
-clfMorgan4 = load(
-    gzip.open(files("np_scout").joinpath("models").joinpath("clf_morgan2_4.pkl.gz"))
-)
+clfMaccs4 = load(files("np_scout").joinpath("models").joinpath("clf_maccs_4.pkl.gz"))
+clfMorgan4 = load(files("np_scout").joinpath("models").joinpath("clf_morgan2_4.pkl.gz"))
 
 
 def get_similarity_map(model, mol, fSize, colorMap, cL):
@@ -99,7 +94,9 @@ def predict(
     # )
 
     if len(mols) > 0:
-        probabilities = np.round_(
+        # avoid mypy complaining about round_ not being an attribute of np
+
+        probabilities = np.round_(  # type: ignore
             clfMaccs.predict_proba(maccs)[:, 1], decimals=2, out=None
         )
     else:

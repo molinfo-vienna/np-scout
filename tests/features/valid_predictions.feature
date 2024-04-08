@@ -1,3 +1,4 @@
+@np_scout
 Feature: Valid predictions
 
   Scenario Outline: Predictions are valid

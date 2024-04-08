@@ -1,4 +1,4 @@
-name: np-scout
+name: np_scout
 channels:
 - conda-forge
 - defaults
