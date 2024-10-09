@@ -1,10 +1,10 @@
 from typing import List, Tuple
 
-from nerdd_module.preprocessing import Step
+from nerdd_module.preprocessing import PreprocessingStep
 from rdkit.Chem import GetMolFrags, Mol, MolToSmiles
 
 
-class StripSalts(Step):
+class StripSalts(PreprocessingStep):
     """
     Removes salts according to the rules defined in DOI: 10.1002/cmdc.201700673
     (Hit Dexter: A Machine-Learning Model for the Prediction of Frequent Hitters)
@@ -14,7 +14,7 @@ class StripSalts(Step):
         super().__init__()
         self.remove_invalid_molecules = remove_invalid_molecules
 
-    def _run(self, mol: Mol) -> Tuple[Mol, List[str]]:
+    def _preprocess(self, mol: Mol) -> Tuple[Mol, List[str]]:
         errors = []
 
         mol_frags = GetMolFrags(mol, asMols=True)

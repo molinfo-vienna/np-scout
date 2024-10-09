@@ -15,9 +15,9 @@ mpl.use("Agg")
 
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
-from nerdd_module import AbstractModel
+from nerdd_module import SimpleModel
 
-from .preprocessing import NpScoutPreprocessingPipeline
+from .preprocessing import preprocessing_steps
 
 if sys.version_info < (3, 9):
     from importlib_resources import files
@@ -82,7 +82,7 @@ def predict(
     mols: List[Mol],
     contour_lines: bool = False,
     quality: str = "low",
-):
+) -> List[dict]:
     similarity_map_size = (150, 150) if quality == "low" else (300, 300)
 
     # calculate features
@@ -118,18 +118,16 @@ def predict(
         for mol in mols
     ]
 
-    results = dict(
-        probability=probabilities,
-        similarity_map=similarity_maps,
-    )
-
-    return pd.DataFrame(results)
+    return [
+        {"probability": prob, "similarity_ap": sim_map} 
+        for prob, sim_map in zip(probabilities, similarity_maps)
+    ]
 
 
-class NPScoutModel(AbstractModel):
+class NPScoutModel(SimpleModel):
     def __init__(self):
         super().__init__(
-            preprocessing_pipeline=NpScoutPreprocessingPipeline(),
+            preprocessing_steps=preprocessing_steps,
         )
 
     def _predict_mols(
@@ -137,7 +135,7 @@ class NPScoutModel(AbstractModel):
         mols: List[Mol],
         contour_lines: bool = False,
         quality: str = "low",
-    ) -> pd.DataFrame:
+    ) -> List[dict]:
         assert quality in ["low", "high"]
 
         return predict(mols, contour_lines, quality)
