@@ -28,7 +28,6 @@ setup(
     install_requires=rdkit_requirement
     + [
         "scikit_learn==0.23.2",
-        "pandas~=1.2.1",
         "numpy==1.19.2",
         "scipy==1.5.2",
         "matplotlib>=3",

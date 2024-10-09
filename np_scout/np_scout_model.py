@@ -5,7 +5,6 @@ from typing import List
 
 import matplotlib as mpl
 import numpy as np
-import pandas as pd
 from joblib import load
 from rdkit.Chem import AllChem, Mol, MolToSmiles
 from rdkit.Chem.Draw import SimilarityMaps
