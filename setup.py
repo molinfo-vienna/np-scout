@@ -16,7 +16,7 @@ rdkit_requirement = ["rdkit>=2022.3.3"] if not rdkit_installed else []
 
 setup(
     name="np-scout",
-    version="0.1.2",
+    version="0.2.0",
     maintainer="Johannes Kirchmair",
     maintainer_email="johannes.kirchmair@univie.ac.at",
     packages=find_packages(),
@@ -32,7 +32,7 @@ setup(
         "numpy==1.19.2",
         "scipy==1.5.2",
         "matplotlib>=3",
-        "nerdd-module>=0.2.0",
+        "nerdd-module>=0.3.3",
         # install importlib-resources and importlib-metadata for old Python versions
         "importlib-resources>=5; python_version<'3.9'",
         "importlib-metadata>=4.6; python_version<'3.10'",
@@ -40,8 +40,7 @@ setup(
     extras_require={
         "dev": [
             "mypy",
-            "isort",
-            "black",
+            "ruff",
         ],
         "test": [
             "pytest",
