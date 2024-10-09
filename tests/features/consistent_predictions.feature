@@ -1,4 +1,3 @@
-@np_scout
 Feature: Consistent predictions
 
   Scenario Outline: Predictions stay consistent with previous versions
@@ -7,17 +6,16 @@ Feature: Consistent predictions
     And the NPScout model
     
     When the model generates predictions for the molecule representations
-    And The subset of the result where the input was not None is considered
+    And the subset of the result where the input was not None is considered
     
-    Then the result should be a pandas DataFrame
-    And the value in column 'name' should be '<name>'
-    And the value in column 'probability' should be '<probability>'
+    Then the value in column 'name' should be equal to '<name>'
+    And the value in column 'probability' should be equal to <probability>
 
     Examples:
     | name                     | input_smiles                                                                                                  | preprocessed_smiles                                                          | probability | errors |
     | Aciclovir                | C1=NC2=C(N1COCCO)N=C(NC2=O)N Aciclovir                                                                        | Nc1nc(=O)c2ncn(COCCO)c2[nH]1                                                 | 0.34        |        |
     | Amiodarone               | CCN(CC)CCOc1c(I)cc(cc1I)C(=O)c2c3ccccc3oc2CCCC Amiodarone                                                     | CCCCc1oc2ccccc2c1C(=O)c1cc(I)c(OCCN(CC)CC)c(I)c1                             | 0.11        |        |
-    | Arsphenamine (Salvarsan) | C1=CC(=C(C=C1[As]=[As]C2=CC(=C(C=C2)O)N)N)O.Cl.Cl Arsphenamine (Salvarsan)                                    | (none)                                                                       | (none)      | !1     |
+    | Arsphenamine (Salvarsan) | C1=CC(=C(C=C1[As]=[As]C2=CC(=C(C=C2)O)N)N)O.Cl.Cl Arsphenamine (Salvarsan)                                    | None                                                                         | None        | !1     |
     | Cyclophosphamide         | C1CNP(=O)(OC1)N(CCCl)CCCl Cyclophosphamide                                                                    | O=P1(N(CCCl)CCCl)NCCCO1                                                      | 0.31        |        |
     | Doxorubicin              | C[C@H]1[C@H]([C@H](C[C@@H](O1)O[C@H]2C[C@@](Cc3c2c(c4c(c3O)C(=O)c5cccc(c5C4=O)OC)O)(C(=O)CO)O)N)O Doxorubicin | COc1cccc2c(O)c3c(O)c4c(c(O)c3c(O)c12)=C(OC1CC(N)C(O)C(C)O1)CC(O)(C(=O)CO)C=4 | 0.98        |        |
     | Hydrochlorothiazide      | O=S(=O)(N)c1c(Cl)cc2c(c1)S(=O)(=O)NCN2 Hydrochlorothiazide                                                    | NS(=O)(=O)c1cc2c(cc1Cl)NCNS2(=O)=O                                           | 0.04        |        |

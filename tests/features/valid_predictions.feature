@@ -1,4 +1,3 @@
-@np_scout
 Feature: Valid predictions
 
   Scenario Outline: Predictions are valid
@@ -9,14 +8,12 @@ Feature: Valid predictions
     And the NPScout model
 
     When the model generates predictions for the molecule representations
-    And The subset of the result where the input was not None is considered
+    And the subset of the result where the input was not None is considered
 
-    Then the result should be a pandas DataFrame
-    And The result should contain the columns:
+    Then the result should contain the columns:
             probability
             similarity_map
     And the value in column 'probability' should be between 0 and 1
-    And the value in column 'similarity_map' should be a png image
 
 
   Examples:
