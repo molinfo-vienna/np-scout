@@ -1,5 +1,6 @@
 from typing import List, Tuple
 
+from nerdd_module import Problem
 from nerdd_module.preprocessing import PreprocessingStep
 from rdkit.Chem import CanonSmiles, Mol, MolFromSmiles, MolToSmiles
 
@@ -9,7 +10,7 @@ class DoSmilesRoundtrip(PreprocessingStep):
         super().__init__()
         self.remove_stereo = remove_stereo
 
-    def _preprocess(self, mol: Mol) -> Tuple[Mol, List[str]]:
+    def _preprocess(self, mol: Mol) -> Tuple[Mol, List[Problem]]:
         errors = []
         smiles = MolToSmiles(mol, True)
         if self.remove_stereo:
@@ -17,6 +18,10 @@ class DoSmilesRoundtrip(PreprocessingStep):
         mol = MolFromSmiles(smiles)
 
         if mol is None:
-            errors.append("V1")
+            errors.append(
+                Problem(
+                    "conversion_failed", "Converting the molecule to SMILES failed."
+                )
+            )
 
         return mol, errors

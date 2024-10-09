@@ -119,7 +119,7 @@ def predict(
     ]
 
     return [
-        {"probability": prob, "similarity_ap": sim_map} 
+        {"probability": prob, "similarity_ap": sim_map}
         for prob, sim_map in zip(probabilities, similarity_maps)
     ]
 

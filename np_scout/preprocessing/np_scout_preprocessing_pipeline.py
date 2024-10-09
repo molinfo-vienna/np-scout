@@ -7,7 +7,7 @@ from .strip_salts import StripSalts
 
 __all__ = ["preprocessing_steps"]
 
-preprocessing_steps=[
+preprocessing_steps = [
     DoSmilesRoundtrip(remove_stereo=False),
     StripSalts(),
     NeutralizeCharges(),

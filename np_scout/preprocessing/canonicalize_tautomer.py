@@ -7,6 +7,7 @@ from rdkit import RDLogger
 logger = RDLogger.logger()
 logger.setLevel(RDLogger.ERROR)
 
+from nerdd_module import Problem
 from nerdd_module.preprocessing import PreprocessingStep
 from rdkit.Chem import KekulizeException, Mol, SanitizeMol
 from rdkit.Chem.MolStandardize import rdMolStandardize
@@ -24,8 +25,8 @@ class CanonicalizeTautomer(PreprocessingStep):
         self.remove_stereo = remove_stereo
         self.remove_invalid_molecules = remove_invalid_molecules
 
-    def _preprocess(self, mol: Mol) -> Tuple[Mol, List[str]]:
-        errors = []
+    def _preprocess(self, mol: Mol) -> Tuple[Mol, List[Problem]]:
+        errors: List[Problem] = []
 
         # generating a canonical tautomer might ignore stereochemistry
         canon = rdMolStandardize.GetV1TautomerEnumerator()
@@ -44,7 +45,7 @@ class CanonicalizeTautomer(PreprocessingStep):
                 raise KekulizeException()
             return molc, errors
         except KekulizeException:
-            errors.append("C1")
+            errors.append(Problem("canonicalization_failed", "Canonicalizing the molecule failed."))
             if self.remove_invalid_molecules:
                 return None, errors
             else:
