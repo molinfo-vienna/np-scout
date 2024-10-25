@@ -45,7 +45,11 @@ class CanonicalizeTautomer(PreprocessingStep):
                 raise KekulizeException()
             return molc, errors
         except KekulizeException:
-            errors.append(Problem("canonicalization_failed", "Canonicalizing the molecule failed."))
+            errors.append(
+                Problem(
+                    "canonicalization_failed", "Canonicalizing the molecule failed."
+                )
+            )
             if self.remove_invalid_molecules:
                 return None, errors
             else:

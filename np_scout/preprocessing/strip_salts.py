@@ -53,7 +53,7 @@ class StripSalts(PreprocessingStep):
                     Problem(
                         "largest_fragment_not_unique",
                         "Could not identify the largest fragment, because there are multiple large "
-                        "fragments of similar size."
+                        "fragments of similar size.",
                     )
                 )
             result_mol = sorted_smiles_split_list[0][0]
