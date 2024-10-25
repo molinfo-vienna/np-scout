@@ -1,3 +1,4 @@
+@np_scout
 Feature: Valid predictions
 
   Scenario Outline: Predictions are valid
@@ -5,9 +6,8 @@ Feature: Valid predictions
     And the input type is '<input_type>'
     And a list of <num_molecules> random molecules, where <num_none> entries are None
     And the representations of the molecules
-    And the NPScout model
 
-    When the model generates predictions for the molecule representations
+    When the NPScout model generates predictions for the molecule representations
     And the subset of the result where the input was not None is considered
 
     Then the result should contain the columns:
