@@ -1,7 +1,7 @@
 import base64
 import sys
 from io import BytesIO
-from typing import List
+from typing import Iterator, List
 
 import matplotlib as mpl
 import numpy as np
@@ -81,7 +81,7 @@ def predict(
     mols: List[Mol],
     contour_lines: bool = False,
     quality: str = "low",
-) -> List[dict]:
+) -> Iterator[dict]:
     similarity_map_size = (150, 150) if quality == "low" else (300, 300)
 
     # calculate features
@@ -92,35 +92,26 @@ def predict(
     #     delayed(AllChem.GetMACCSKeysFingerprint)(mol) for mol in mols
     # )
 
-    if len(mols) > 0:
-        # avoid mypy complaining about round_ not being an attribute of np
-
-        probabilities = np.round_(  # type: ignore
-            clfMaccs.predict_proba(maccs)[:, 1], decimals=2, out=None
-        )
-    else:
-        probabilities = []
+    # avoid mypy complaining about round_ not being an attribute of np
+    probabilities = np.round_(  # type: ignore
+        clfMaccs.predict_proba(maccs)[:, 1], decimals=2, out=None
+    )
 
     # build similarity maps
     color_map = LinearSegmentedColormap.from_list(
         "PiWG", ["#FFB029", "#FFFFFF", "#39DB6A"], N=255
     )
 
-    similarity_maps = [
-        get_similarity_map(
+    for mol, prob in zip(mols, probabilities):
+        sim_map = get_similarity_map(
             clfMorgan,
             mol,
             similarity_map_size,
             color_map,
             (10 if contour_lines else 0),
         )
-        for mol in mols
-    ]
 
-    return [
-        {"probability": prob, "similarity_ap": sim_map}
-        for prob, sim_map in zip(probabilities, similarity_maps)
-    ]
+        yield {"mol": mol, "probability": prob, "similarity_ap": sim_map}
 
 
 class NPScoutModel(SimpleModel):
@@ -134,7 +125,7 @@ class NPScoutModel(SimpleModel):
         mols: List[Mol],
         contour_lines: bool = False,
         quality: str = "low",
-    ) -> List[dict]:
+    ) -> Iterator[dict]:
         assert quality in ["low", "high"]
 
         return predict(mols, contour_lines, quality)
