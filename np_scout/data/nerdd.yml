@@ -26,17 +26,24 @@ module:
       logo: !image logo_hamburg.gif
       url: https://www.uni-hamburg.de/
   
-  citation: |
-    Chen, Y.; Stork, C.; Hirte, S.; Kirchmair, J. NP-Scout: Machine learning approach 
-    for the quantification and visualization of the natural product-likeness of small 
-    molecules. _Biomolecules_ **2019**.<br>
-    [doi: 10.3390/biom9020043](https://doi.org/10.3390/biom9020043)
-
-  contact:
-    - name: Ya Chen
-      email: chen@zbh.uni-hamburg.de
-    - name: Johannes Kirchmair
-      email: johannes.kirchmair@univie.ac.at
+  publications:
+    - title: |
+        NP-Scout: Machine learning approach for the quantification and visualization of the 
+        natural product-likeness of small molecules
+      authors:
+        - first_name: Ya
+          last_name: Chen
+          email: chen@zbh.uni-hamburg.de
+        - first_name: Conrad
+          last_name: Stork
+        - first_name: Steffen
+          last_name: Hirte
+        - first_name: Johannes
+          last_name: Kirchmair
+          email: johannes.kirchmair@univie.ac.at
+      journal: Biomolecules
+      year: 2019
+      doi: 10.3390/biom9020043      
 
   about: |
     ## About NP-Scout
@@ -108,12 +115,12 @@ module:
 
   job_parameters:
     - name: contour_lines
-      verbose_name: Contour lines for similarity map
+      visible_name: Contour lines for similarity map
       type: bool
       default: False
     - name: quality
-      verbose_name: Figure quality of similarity map
-      type: text
+      visible_name: Figure quality of similarity map
+      type: string
       choices:
         - value: low
           label: low
@@ -123,11 +130,11 @@ module:
 
   result_properties:
     - name: probability
-      verbose_name: NP class probability
+      visible_name: NP class probability
       type: float
       palette: negativeToPositive
       sortable: True
     - name: similarity_map
-      verbose_name: Similarity map
+      visible_name: Similarity map
       type: image
       sortable: False
