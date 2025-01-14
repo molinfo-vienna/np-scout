@@ -65,10 +65,9 @@ def get_similarity_map(model, mol, fSize, colorMap, cL):
         tmpfile = BytesIO()
         fig.savefig(tmpfile, format="png", bbox_inches="tight")
         encoded = base64.b64encode(tmpfile.getvalue())
-        image = '<img src="data:image/png;base64,{}">'.format(encoded.decode("utf-8"))
-        image_resize = image[:-1] + ' width = "200" height="200" />'
+        image = "data:image/png;base64,{}".format(encoded.decode("utf-8"))
         plt.close(fig)
-        return image_resize
+        return image
     except ZeroDivisionError:
         print(
             MolToSmiles(mol),
@@ -111,7 +110,7 @@ def predict(
             (10 if contour_lines else 0),
         )
 
-        yield {"mol": mol, "probability": prob, "similarity_ap": sim_map}
+        yield {"mol": mol, "probability": prob, "similarity_map": sim_map}
 
 
 class NPScoutModel(SimpleModel):
