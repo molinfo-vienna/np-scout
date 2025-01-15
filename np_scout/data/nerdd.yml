@@ -14,7 +14,7 @@ module:
     * Quantification of natural product-likeness of small molecules
     * Visualization of atoms and areas in small molecules characteristic of natural 
       products or synthetic molecules (based on similarity maps)
-    
+
     NP-Scout utilizes random forest classifiers trained on data sets consisting of more
     than 265k natural products and synthetic molecules.
 
@@ -25,7 +25,7 @@ module:
     - name: University of Hamburg
       logo: !image logo_hamburg.gif
       url: https://www.uni-hamburg.de/
-  
+
   publications:
     - title: |
         NP-Scout: Machine learning approach for the quantification and visualization of the 
@@ -43,7 +43,7 @@ module:
           email: johannes.kirchmair@univie.ac.at
       journal: Biomolecules
       year: 2019
-      doi: 10.3390/biom9020043      
+      doi: 10.3390/biom9020043
 
   about: |
     ## About NP-Scout
@@ -73,17 +73,17 @@ module:
     ## Example upload file
 
     Lists of SMILES should be formatted as shown in the following examples: 
-    
+
     Example 1: One SMILES per row with no additional data 
-    
+
     C=C1C(=O)OC2C1CCC1(C)OC13CC=C(C)C23  
     CC12C=CC(=O)NC1CCC1C2CCC2(C)C(C(=O)Nc3cc(C(F)(F)F)ccc3C(F)(F)F)CCC12 
-    
+
     Example 2: One SMILES per row with additional data 
-    
+
     C=C1C(=O)OC2C1CCC1(C)OC13CC=C(C)C23 arglabin  
     CC12C=CC(=O)NC1CCC1C2CCC2(C)C(C(=O)Nc3cc(C(F)(F)F)ccc3C(F)(F)F)CCC12 dutaseride 
-    
+
     The following separators may be used: " " (space character) or "\\t" (tab).
 
     ## Running the calculations

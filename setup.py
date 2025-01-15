@@ -29,7 +29,6 @@ setup(
     + [
         "scikit_learn==0.23.2",
         "numpy==1.19.2",
-        "scipy==1.5.2",
         "matplotlib>=3",
         "nerdd-module>=0.3.12",
         # install importlib-resources and importlib-metadata for old Python versions

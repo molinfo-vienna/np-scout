@@ -1,5 +1,6 @@
-from np_scout import NPScoutModel
 from pytest_bdd import parsers, when
+
+from np_scout import NPScoutModel
 
 
 @when(
@@ -8,10 +9,9 @@ from pytest_bdd import parsers, when
     ),
     target_fixture="predictions",
 )
-def predictions(representations, input_type):
+def predictions(representations):
     model = NPScoutModel()
     return model.predict(
         representations,
-        input_type=input_type,
         output_format="record_list",
     )
