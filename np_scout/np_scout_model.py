@@ -32,10 +32,6 @@ warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
 __all__ = ["NPScoutModel"]
 
 # load ml models
-# build with n_jobs=1
-clfMaccs = load(files("np_scout").joinpath("models").joinpath("clf_maccs.pkl.gz"))
-clfMorgan = load(files("np_scout").joinpath("models").joinpath("clf_morgan2.pkl.gz"))
-
 # build with n_jobs=4
 clfMaccs4 = load(files("np_scout").joinpath("models").joinpath("clf_maccs_4.pkl.gz"))
 clfMorgan4 = load(files("np_scout").joinpath("models").joinpath("clf_morgan2_4.pkl.gz"))
@@ -93,7 +89,7 @@ def predict(
 
     # avoid mypy complaining about round_ not being an attribute of np
     probabilities = np.round_(  # type: ignore
-        clfMaccs.predict_proba(maccs)[:, 1], decimals=2, out=None
+        clfMaccs4.predict_proba(maccs)[:, 1], decimals=2, out=None
     )
 
     # build similarity maps
@@ -103,7 +99,7 @@ def predict(
 
     for mol, prob in zip(mols, probabilities):
         sim_map = get_similarity_map(
-            clfMorgan,
+            clfMorgan4,
             mol,
             similarity_map_size,
             color_map,
