@@ -42,3 +42,8 @@ Repository = "https://github.com/molinfo-vienna/np-scout"
 
 [project.scripts]
 npscout = "np_scout.__main__:main"
+
+[tool.semantic_release]
+version_toml = ["pyproject.toml:project.version"]
+branch = "main"
+upload_to_vcs_release = true
