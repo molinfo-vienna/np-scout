@@ -3,13 +3,14 @@ Feature: Valid predictions
 
   Scenario Outline: Predictions are valid
     Given a random seed set to <seed>
-    And a list of <num_molecules> random molecules, where <num_none> entries are None
+    And a list of <num_molecules> random molecules, where 
+          * <num_none> entries are None
+          * each mol has a weight between 150 and 1500
     And the representations of the molecules in <input_type> format
 
     When the NPScout model generates predictions for the molecule representations
     And the subset of the result where the input was not None is considered
 
-    # TODO: add similarity_map
     Then the result should contain the columns:
             probability
     And the value in column 'probability' should be between 0 and 1
