@@ -132,8 +132,17 @@ module:
     - name: probability
       visible_name: NP class probability
       type: float
-      palette: negativeToPositive
       sortable: True
+      color_palette:
+        type: diverging
+        domain:
+          - 0
+          - 0.5
+          - 1
+        range:
+          - negative
+          - neutral
+          - positive
     - name: similarity_map
       visible_name: Similarity map
       type: image
