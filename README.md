@@ -1,5 +1,18 @@
 # NP-Scout
 
+## Installation
+
+```sh
+conda env create -f environment.yml
+conda activate np_scout
+
+wget https://gist.githubusercontent.com/shirte/e1734e51dbc72984b2d918a71b68c25b/raw/ae4afece11980f5d7da9e7668a651abe349c357a/rdkit_installation_fix.sh && \
+chmod +x rdkit_installation_fix.sh && \
+./rdkit_installation_fix.sh np_scout
+
+pip install .
+```
+
 ## About NP-Scout
 
 NP-Scout is a free web service for the:
