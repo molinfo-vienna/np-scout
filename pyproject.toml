@@ -43,6 +43,11 @@ Repository = "https://github.com/molinfo-vienna/np-scout"
 [project.scripts]
 npscout = "np_scout.__main__:main"
 
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+addopts = "-x --cov-report=xml --cov-report=term --cov=np_scout"
+
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]
 branch = "main"
