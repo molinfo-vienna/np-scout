@@ -64,7 +64,7 @@ The results in *.csv* format can be downloaded for further use. The *.csv* file 
 
 ```
 conda env create -f environment.yml
-conda activate npscout
+conda activate np_scout
 pip install -e .[dev,test]
 ptw
 ```
