@@ -5,4 +5,4 @@ matplotlib==3.6.3
 numpy==1.19.2
 rdkit==2020.09.1
 nerdd-module==0.3.36
-nerdd-link==0.2.23
+nerdd-link==0.2.24
