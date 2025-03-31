@@ -1,6 +1,21 @@
 # CHANGELOG
 
 
+## v0.0.2 (2025-03-31)
+
+### Fixes
+
+* fix: Add color palettes to result properties ([`e05135f`](https://github.com/molinfo-vienna/np-scout/commit/e05135f4abc4ef3029094ddffe417f68f6dbf81c))
+
+### Unknown
+
+* Merge pull request #11 from shirte/main
+
+Add color palettes ([`1104331`](https://github.com/molinfo-vienna/np-scout/commit/1104331879d4cde97641a68289fd7a5e652f2e96))
+
+* Bump nerdd-module version ([`c988d10`](https://github.com/molinfo-vienna/np-scout/commit/c988d10cbae7a090309df6bdc62f40bf2b0ed796))
+
+
 ## v0.0.1 (2025-03-01)
 
 ### Fixes
