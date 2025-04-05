@@ -10,7 +10,7 @@ LABEL org.opencontainers.image.source="https://github.com/molinfo-vienna/np-scou
 USER root
 
 # keep Docker from buffering the output so we can see the output of the application in real-time
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
