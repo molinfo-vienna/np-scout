@@ -1,6 +1,35 @@
 # CHANGELOG
 
 
+## v0.0.3 (2025-05-20)
+
+### Code Style
+
+* style: Use uppercase for Dockerfile keywords ([`7062a27`](https://github.com/molinfo-vienna/np-scout/commit/7062a27922525e0a0c013c3930f03ef33e6bfd9d))
+
+* style: Fix typo in readme ([`056bba5`](https://github.com/molinfo-vienna/np-scout/commit/056bba51d993103f9d3107fe67e887c695e24364))
+
+* style: Use pytest-watcher instead of pytest-watch ([`06ae30a`](https://github.com/molinfo-vienna/np-scout/commit/06ae30a67a76acba008ba2c537efb867e214cdf6))
+
+* style: Move content of pytest.ini to pyproject.toml ([`6a9653e`](https://github.com/molinfo-vienna/np-scout/commit/6a9653edfae9eb55fe890ac5c7bc5650afa1a679))
+
+### Documentation
+
+* docs: Add installation instructions ([`d5ff3ec`](https://github.com/molinfo-vienna/np-scout/commit/d5ff3ecc8e8345f445ff0b26a662a4e59b7bd9f2))
+
+### Fixes
+
+* fix: Bump versions of dependencies ([`ffba1fe`](https://github.com/molinfo-vienna/np-scout/commit/ffba1fed7cd7f19bf093b962104d7f4dc5335135))
+
+* fix: Update setuptools dependency ([`f6c5ca2`](https://github.com/molinfo-vienna/np-scout/commit/f6c5ca25633aa674a4c168754296ae516b6a0d8b))
+
+### Unknown
+
+* Merge pull request #12 from shirte/main
+
+Update setuptools dependency ([`bfe488d`](https://github.com/molinfo-vienna/np-scout/commit/bfe488ddd58ec3bca386c336c4604fb1a050b62b))
+
+
 ## v0.0.2 (2025-03-31)
 
 ### Fixes
