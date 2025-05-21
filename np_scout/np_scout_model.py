@@ -60,8 +60,7 @@ def get_similarity_map(model, mol, fSize, colorMap, cL):
         )
         tmpfile = BytesIO()
         fig.savefig(tmpfile, format="png", bbox_inches="tight")
-        encoded = base64.b64encode(tmpfile.getvalue())
-        image = "data:image/png;base64,{}".format(encoded.decode("utf-8"))
+        image = tmpfile.getvalue()
         plt.close(fig)
         return image
     except ZeroDivisionError:
