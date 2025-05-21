@@ -1,6 +1,25 @@
 # CHANGELOG
 
 
+## v0.0.4 (2025-05-21)
+
+### Code Style
+
+* style: Add development Dockerfile ([`08f9061`](https://github.com/molinfo-vienna/np-scout/commit/08f9061663e0d947628fd71c4230e50d2617e014))
+
+### Fixes
+
+* fix: Bump version of nerdd-link ([`aa582f7`](https://github.com/molinfo-vienna/np-scout/commit/aa582f790f5af10b4240ee6e859973ae258501b0))
+
+* fix: Return byte code of similarity_map ([`9e8bcca`](https://github.com/molinfo-vienna/np-scout/commit/9e8bcca3c3e9ac66252cfc9dcfc7d40f6bb69fe1))
+
+### Unknown
+
+* Merge pull request #13 from shirte/main
+
+Return byte code of similarity map property ([`c6aaef0`](https://github.com/molinfo-vienna/np-scout/commit/c6aaef0a549e996bd2abeece9f6488d7015bde95))
+
+
 ## v0.0.3 (2025-05-20)
 
 ### Code Style
