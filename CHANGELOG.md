@@ -1,6 +1,25 @@
 # CHANGELOG
 
 
+## v0.0.5 (2025-05-22)
+
+### Code Style
+
+* style: Do not use whitespace operator when setting env variables ([`6b734b8`](https://github.com/molinfo-vienna/np-scout/commit/6b734b8fcd9b08344ec4b397b0bf58dc4e4dd47c))
+
+### Fixes
+
+* fix: Use distroless container image ([`9d3019a`](https://github.com/molinfo-vienna/np-scout/commit/9d3019a2b4c5a36dc23a2192b17e2b3a729bc8f2))
+
+* fix: Use npscout as entrypoint for container image ([`f234efe`](https://github.com/molinfo-vienna/np-scout/commit/f234efe11a81286768f78483c423ce023811102b))
+
+### Unknown
+
+* Merge pull request #14 from shirte/main
+
+Use npscout as entrypoint of the container ([`a339d54`](https://github.com/molinfo-vienna/np-scout/commit/a339d547db4b5e510a680320b63ce1e48c8572f5))
+
+
 ## v0.0.4 (2025-05-21)
 
 ### Code Style
