@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.0.6 (2025-05-28)
+
+### Fixes
+
+* fix: arm64 compatibility ([`365b6f0`](https://github.com/molinfo-vienna/np-scout/commit/365b6f0409e1f18a0e96ca154a48505b906efff4))
+
+### Unknown
+
+* Merge pull request #15 from molinfo-vienna/arm64
+
+fix: arm64 compatibility ([`2445f44`](https://github.com/molinfo-vienna/np-scout/commit/2445f44927506f846f491c6c7e82789de3fead5d))
+
+
 ## v0.0.5 (2025-05-22)
 
 ### Code Style
