@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.0.7 (2025-07-01)
+
+### Fixes
+
+* fix: Bump versions of dependencies ([`5de8f48`](https://github.com/molinfo-vienna/np-scout/commit/5de8f48bb84a83a2a9947a0de624653532f2f91d))
+
+### Unknown
+
+* Merge pull request #16 from shirte/main
+
+fix: Bump versions of dependencies ([`df3caf8`](https://github.com/molinfo-vienna/np-scout/commit/df3caf81ab27740289a66c73071f4a302eb03574))
+
+
 ## v0.0.6 (2025-05-28)
 
 ### Fixes
