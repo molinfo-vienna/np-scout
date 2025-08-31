@@ -14,7 +14,7 @@ mpl.use("Agg")
 
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
-from nerdd_module import SimpleModel
+from nerdd_module import Model
 
 from .preprocessing import preprocessing_steps
 
@@ -108,7 +108,7 @@ def predict(
         yield {"mol": mol, "probability": prob, "similarity_map": sim_map}
 
 
-class NPScoutModel(SimpleModel):
+class NPScoutModel(Model):
     def __init__(self):
         super().__init__(
             preprocessing_steps=preprocessing_steps,
