@@ -27,9 +27,7 @@ COPY environment.yml requirements.txt ./
 # -p /env forces the environment to be created in /env so we don't have to know the env name
 RUN micromamba env create --copy -p /env -f environment.yml && \
     # fix a problem with the RDKit installation (keeping pip from seeing the conda-installed RDKit)
-    wget https://gist.githubusercontent.com/shirte/e1734e51dbc72984b2d918a71b68c25b/raw/ae4afece11980f5d7da9e7668a651abe349c357a/rdkit_installation_fix.sh && \
-    chmod +x rdkit_installation_fix.sh && \
-    ./rdkit_installation_fix.sh /env && \
+    curl -sS https://gist.githubusercontent.com/shirte/e1734e51dbc72984b2d918a71b68c25b/raw/ae4afece11980f5d7da9e7668a651abe349c357a/rdkit_installation_fix.sh | bash -s /env && \
     # install the pip dependencies
     micromamba run -p /env pip install -r requirements.txt
 
