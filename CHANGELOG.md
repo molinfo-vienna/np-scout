@@ -1,6 +1,31 @@
 # CHANGELOG
 
 
+## v0.0.8 (2025-09-26)
+
+### Documentation
+
+* docs: Replace wget with curl in readme ([`26a893e`](https://github.com/molinfo-vienna/np-scout/commit/26a893ed37f704a0296069e06dbfe43810dc4eb7))
+
+### Fixes
+
+* fix: Adapt model to most recent version of nerdd-module ([`42917e2`](https://github.com/molinfo-vienna/np-scout/commit/42917e2be6015915d181041cb9627c9ec831e9cf))
+
+* fix: Use curl instead of wget ([`5233516`](https://github.com/molinfo-vienna/np-scout/commit/523351677c07c333950ab62299eda6d66af50ad5))
+
+* fix: Update dependencies ([`58d14ca`](https://github.com/molinfo-vienna/np-scout/commit/58d14ca537db21ab9a38a24da1513583dfc7f9c0))
+
+### Testing
+
+* test: Improve tests ([`e8fb252`](https://github.com/molinfo-vienna/np-scout/commit/e8fb25204f35bfe45416315a1ee3a00650e39b89))
+
+### Unknown
+
+* Merge pull request #17 from shirte/main
+
+Update dependencies ([`77d0b75`](https://github.com/molinfo-vienna/np-scout/commit/77d0b75e6150c8159e71a43de20aa63978498691))
+
+
 ## v0.0.7 (2025-07-01)
 
 ### Fixes
