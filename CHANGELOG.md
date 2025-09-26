@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.0.9 (2025-09-26)
+
+### Fixes
+
+* fix: Replace wget with curl in dockerfiles ([`3696b85`](https://github.com/molinfo-vienna/np-scout/commit/3696b85ad4157a64c232b62a2a7d07a8b51d432e))
+
+### Unknown
+
+* Merge pull request #18 from shirte/main
+
+Replace wget with curl in dockerfiles ([`b1b07e5`](https://github.com/molinfo-vienna/np-scout/commit/b1b07e58d0027fc5b78d2cefd3adff547b812fe2))
+
+
 ## v0.0.8 (2025-09-26)
 
 ### Documentation
