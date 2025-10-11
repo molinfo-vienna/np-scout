@@ -1,6 +1,21 @@
 # CHANGELOG
 
 
+## v0.0.10 (2025-10-11)
+
+### Fixes
+
+* fix: Remove unused imports ([`3900618`](https://github.com/molinfo-vienna/np-scout/commit/3900618d8ccf0ec952cb5e500385e8e4665bc777))
+
+* fix: Update dependencies ([`3353fb8`](https://github.com/molinfo-vienna/np-scout/commit/3353fb8bb585789215ba0253a1253bc7304d77ce))
+
+### Unknown
+
+* Merge pull request #19 from shirte/main
+
+Update dependencies ([`8009910`](https://github.com/molinfo-vienna/np-scout/commit/80099104d5868d9bef9be063b02d78301f23af1c))
+
+
 ## v0.0.9 (2025-09-26)
 
 ### Fixes
