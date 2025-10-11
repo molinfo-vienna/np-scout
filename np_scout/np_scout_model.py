@@ -1,4 +1,3 @@
-import base64
 import sys
 from io import BytesIO
 from typing import Iterator, List
