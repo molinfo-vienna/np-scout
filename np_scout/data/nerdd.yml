@@ -9,14 +9,16 @@ module:
 
   title: Identification and Visualization of Natural Product-Likeness
   description: |
-    NP-Scout is a free web service for the:
+    NP-Scout is a web service for the:
     * Identification of natural products in large molecular libraries
     * Quantification of natural product-likeness of small molecules
     * Visualization of atoms and areas in small molecules characteristic of natural 
       products or synthetic molecules (based on similarity maps)
 
-    NP-Scout utilizes random forest classifiers trained on data sets consisting of more
-    than 265k natural products and synthetic molecules.
+    NP-Scout utilizes random forest classifiers trained on data sets consisting of more than 265k
+    natural products and synthetic molecules.
+
+    This web service is freely available for both academic and commercial use.
 
   partners:
     - name: University of Vienna
