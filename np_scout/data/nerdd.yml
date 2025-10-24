@@ -29,23 +29,7 @@ module:
       url: https://www.uni-hamburg.de/
 
   publications:
-    - title: |
-        NP-Scout: Machine learning approach for the quantification and visualization of the 
-        natural product-likeness of small molecules
-      authors:
-        - first_name: Ya
-          last_name: Chen
-          email: chen@zbh.uni-hamburg.de
-        - first_name: Conrad
-          last_name: Stork
-        - first_name: Steffen
-          last_name: Hirte
-        - first_name: Johannes
-          last_name: Kirchmair
-          email: johannes.kirchmair@univie.ac.at
-      journal: Biomolecules
-      year: 2019
-      doi: 10.3390/biom9020043
+    - doi: 10.3390/biom9020043
 
   about: |
     ## About NP-Scout
