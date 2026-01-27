@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "np-scout"
-version = "0.0.10"
+version = "0.0.11"
 description = "NP-Scout: Identification and visualization of natural product-likeness"
 readme = "README.md"
 license = { file = "LICENSE" }

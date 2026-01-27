@@ -1,6 +1,23 @@
 # CHANGELOG
 
 
+## v0.0.11 (2026-01-27)
+
+### Fixes
+
+* fix: Provide only DOI for publication ([`bfd2fc4`](https://github.com/molinfo-vienna/np-scout/commit/bfd2fc4195b65332a5b487b619b0ca352c3a2874))
+
+* fix: Add license statement ([`f34595b`](https://github.com/molinfo-vienna/np-scout/commit/f34595b5b0e5cfcc83125b86a0aa8664bde7c5a5))
+
+* fix: Update nerdd dependencies ([`3b510e9`](https://github.com/molinfo-vienna/np-scout/commit/3b510e95cf16511e03de8a1fb7620daef896895a))
+
+### Unknown
+
+* Merge pull request #20 from shirte/main
+
+Update nerdd dependencies ([`ce42526`](https://github.com/molinfo-vienna/np-scout/commit/ce42526efc3ab655e95ac99295ed42f0afbb4a73))
+
+
 ## v0.0.10 (2025-10-11)
 
 ### Fixes
