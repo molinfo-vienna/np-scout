@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.0.12 (2026-01-29)
+
+### Fixes
+
+* fix: Update nerdd-link ([`e6fc03b`](https://github.com/molinfo-vienna/np-scout/commit/e6fc03b1af8453d0103f23db81f8a6e88d3fc9d1))
+
+### Unknown
+
+* Merge pull request #21 from shirte/main
+
+Update nerdd-link ([`17ee06d`](https://github.com/molinfo-vienna/np-scout/commit/17ee06d5e0a8259d2ee8b7d7dbae4e0deb13c555))
+
+
 ## v0.0.11 (2026-01-27)
 
 ### Fixes
