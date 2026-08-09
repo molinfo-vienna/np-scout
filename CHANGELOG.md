@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.0.13 (2026-08-09)
+
+### Fixes
+
+* fix: Update nerdd dependencies ([`335430c`](https://github.com/molinfo-vienna/np-scout/commit/335430c27e554e85f98e19a278debda69ad2d040))
+
+### Unknown
+
+* Merge pull request #22 from shirte/main
+
+Update nerdd dependencies ([`e1ca939`](https://github.com/molinfo-vienna/np-scout/commit/e1ca93994b89398aa597816583f4b889da2d476b))
+
+
 ## v0.0.12 (2026-01-29)
 
 ### Fixes
